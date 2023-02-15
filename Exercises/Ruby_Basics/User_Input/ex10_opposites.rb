@@ -20,17 +20,13 @@ num_2 = nil
 loop do
   puts 'Enter a positive or negative number:'
   num_1 = gets.chomp
-  break  if valid_number?(num_1)
-
-  puts "Invalid input, only non-zero integers are allowed"
-end
-
-loop do
-  puts 'Enter a positive or negative number:'
+  puts 'Enter another positive or negative number:'
   num_2 = gets.chomp
-  break  if valid_number?(num_2)
+  num_product = num_1.to_i * num_2.to_i
+  valid_numbers = valid_number(num_1) && valid_number(num_2)
+  break if valid_numbers && num_product.negative?
 
-  puts "Invalid input, only non-zero integers are allowed"
+  puts 'Invalid input, only non-zero integers are allowed'
 end
 
 result = num_1.to_i + num_2.to_i
